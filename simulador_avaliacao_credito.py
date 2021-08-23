@@ -4,10 +4,21 @@ import pandas as pd
 from utils import Transformador
 
 
+# As linhas #MainMenu e footer servem para esconder o menu do canto superior direito da página
+# A última linha foi da aula e serve para mudar a cor do background dos combobox
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+div[role="listbox"] ul{background-color: #eee1f79e};
+</style>
+
+"""
+
 # No Streamlit podemos modificar os estilos do css do html dele sem problemas. Basta
 # usar o markdown que está a seguir.
 # Cor de fundo do listbox
-st.markdown('<style>div[role="listbox"] ul{background-color: #eee1f79e};</style>', unsafe_allow_html=True)
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
 # Função que vai usar o modelo para avaliar as respostas do cliente e indicar
